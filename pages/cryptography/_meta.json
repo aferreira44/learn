@@ -1,0 +1,13 @@
+{
+  "introduction": "1. Introduction",
+  "basic-concepts": "2. Basic Concepts",
+  "symmetric-encryption": "3. Symmetric Encryption",
+  "asymmetric-encryption": "4. Asymmetric Encryption",
+  "hash-functions": "5. Hash Functions",
+  "cryptographic-protocols": "6. Cryptographic Protocols",
+  "cryptanalysis": "7. Cryptanalysis",
+  "applied-cryptography": "8. Applied Cryptography",
+  "future-trends": "9. Future Trends",
+  "tools": "10. Useful Tools",
+  "resources": "11. Resources"
+}

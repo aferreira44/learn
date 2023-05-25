@@ -1,5 +1,5 @@
 export default {
-  logo: <span>Cryptography 101</span>,
+  logo: <span>Learn with Me</span>,
   project: {
     link: 'https://github.com/aferreira44/cryptography101'
   }
