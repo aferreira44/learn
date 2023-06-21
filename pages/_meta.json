@@ -1,11 +1,5 @@
 {
   "index": "Start Here",
-  "bitcoin": "Bitcoin",
-  "typescript": "TypeScript",
-  "python": "Python",
-  "react": "React",
-  "web3": "Web3",
-  "cryptography": "Cryptography",
-  "rust": "Rust",
-  "go": "Go"
+  "blockchain": "Blockchain",
+  "cryptography": "Cryptography"
 }
