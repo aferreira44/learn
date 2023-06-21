@@ -1,11 +1,17 @@
 {
   "index": "Start Here",
-  "bitcoin": "Bitcoin",
-  "typescript": "TypeScript",
-  "python": "Python",
-  "react": "React",
-  "web3": "Web3",
-  "cryptography": "Cryptography",
-  "rust": "Rust",
-  "go": "Go"
+  "architecture": "Software Architecture",
+  "languages": "Programming Languages",
+  "ai": "Artificial Intelligence",
+  "blockchain": "Blockchain",
+  "cloud": "Cloud Computing",
+  "backend": "Backend",
+  "frontend": "Frontend",
+  "mobile": "Mobile",
+  "databases": "Databases",
+  "devops": "DevOps",
+  "security": "Security",
+  "creative-coding": "Creative Coding",
+  "testing": "Testing",
+  "agile": "Agile"
 }
