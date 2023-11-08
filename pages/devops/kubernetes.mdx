@@ -1,0 +1,116 @@
+# Kubernetes
+
+https://github.com/badtuxx/CertifiedContainersExpert
+
+## Curso Descomplicando Kubernetes
+
+## What's Kubernetes?
+
+Kubernetes is a container orchestration system. It allows you to run containers in a cluster. It also allows you to manage the containers in the cluster.
+
+- DNS
+- Services communication
+- Load balancing
+- Scaling
+
+- Control plane nodes (cluster health)
+  - API server
+  - etcd
+- Worker nodes
+
+## Kubernets in Production
+
+- EKS, GKE, AKS
+
+## Kubernetes Vanilla
+
+- Kubeadm
+
+## Kubernetes in Development
+
+- Minikube
+- Kind
+- K3s
+
+## Kubectl
+
+kubectl get nodes
+
+kubectl get pods
+
+kubectl get pods -A
+
+kubectl get pods -A -o wide
+
+kubectl run nginx --image nginx
+
+kubectl describe pod nginx
+
+kubectl exec -ti nginx -- bash
+
+kubectl expose pod nginx --port 80 --name nginx-service --type NodePort
+
+kubectl get pods -n kube-system
+
+kubectl get services
+
+kubectl get namespaces
+
+## Kind
+
+kind create cluster --name giropops
+
+kind create cluster --name giropops-multinode --config kind-3nodes.yaml
+
+kind get clusters
+
+kind delete clusters giropops
+
+## Pod
+
+- Smallest unit in Kubernetes
+- One or more containers
+- Shared resources
+- One IP address
+
+## What's a container?
+
+Isolated resources that run on a host machine. They are isolated from each other and from the host machine. They are also isolated from the network.
+
+### What's the kernel?
+
+The kernel is the core of the operating system. It's the part of the operating system that interacts with the hardware. It's the part of the operating system that manages the resources of the machine.
+
+### What's a namespace?
+
+A namespace is a way to isolate resources. It's a way to group resources together. It's a way to group resources together in a way that they can't interact with each other.
+
+### What's a cgroup?
+
+A cgroup is a way to limit the resources that a process can use. It's a way to limit the resources that a process can use in a way that it can't use more than it's allowed to use.
+
+### History of containers
+
+- Docker Swarm
+- Nomad
+- Kubernetes
+
+## What's Docker?
+
+Docker is a tool that allows you to run containers. It's a tool that allows you to run containers in a way that they are isolated from each other and from the host machine.
+
+### What's a cluster and nodes?
+
+A cluster is a group of machines that are connected to each other. A cluster is a group of machines that are connected to each other in a way that they can communicate with each other.
+
+A node is a machine that is part of a cluster. A node is a machine that is part of a cluster in a way that it can communicate with the other machines in the cluster.
+
+## Resources
+
+- Linux Foundation
+- CNCF
+
+
+
+
+

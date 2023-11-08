@@ -1,0 +1,73 @@
+# Todo
+
+- [x] Express
+- [x] SQL (UNION, JOIN, etc)
+- [x] Sequelize
+- [x] Javascript
+- [x] Redis
+- [x] Session, Cookies, JWT, OAuth, Passport, etc
+- [x] Polygon
+- [x] Pinata
+- [x] Kubernetes
+- [x] Helm
+- [x] Husky
+- [x] AWS
+- [x] SonarQube
+- [x] OpenAI
+- [x] Docker
+- [x] Terraform
+- [x] Ansible
+- [x] React Native
+- [x] Cosmos Network
+- [x] Solana
+- [x] Polkadot
+- [x] NEAR
+- [x] Ethereum
+- [x] IPFS
+- [x] ENS (Ethereum Name Service)
+- [x] Gitcoin Passport
+- [x] Moralis
+- [x] The Graph
+- [x] Infura
+- [x] Arweave
+- [ ] Vue
+- [ ] Nuxt
+- [ ] Svelte
+- [ ] Hypercore
+- [ ] Hyperbee
+- [ ] Hyperdrive
+- [ ] Hypergraph
+- [ ] Hypermerge
+- [ ] HyperSwarm
+- [ ] Firebase
+- [ ] FaunaDB
+- [ ] Supabase
+- [ ] Hasura
+- [ ] Postgraphile
+- [ ] Prisma
+- [ ] GraphQL
+- [ ] Apollo
+- [ ] Relay
+- [ ] CSS
+- [ ] Tailwind
+- [ ] DaisyUI
+- [ ] AdonisJS
+- [ ] NestJS
+- [ ] NextJS
+- [ ] SailsJS
+- [ ] Strapi
+- [ ] Loopback
+- [ ] FeathersJS
+- [ ] AlpineJS
+
+
+- zero knowledge proofs
+- Metamask
+- Wagmi
+- ethers.js
+- EOS
+- zkEVM
+
+
+- [ ] HackerRank
+- [ ] LeetCode

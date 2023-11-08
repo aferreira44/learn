@@ -1,0 +1,37 @@
+# Minikube
+
+https://minikube.sigs.k8s.io/docs/
+
+## Install Minikube
+
+https://minikube.sigs.k8s.io/docs/start/
+
+## Start a local cluster
+
+`minikube start`
+
+## Minikube Dashboard
+
+`minikube dashboard`
+
+## Starting a server
+
+`kubectl create deployment hello-minikube --image=kicbase/echo-server:1.0`
+
+`kubectl expose deployment hello-minikube --type=NodePort --port=8080`
+
+`minikube service hello-minikube`
+
+## Stop local cluster
+
+`minikube stop`
+
+## Delete local cluster
+
+`minikube delete`
+
+## Delete all local cluster and profiles
+
+`minikube delete --all`
+
+
