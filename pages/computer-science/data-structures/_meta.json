@@ -1,0 +1,10 @@
+{
+  "array": "Array",
+  "linked-list": "Linked List",
+  "stack": "Stack",
+  "queue": "Queue",
+  "hash-table": "Hash Table",
+  "tree": "Tree",
+  "heap": "Heap",
+  "graph": "Graph"
+}

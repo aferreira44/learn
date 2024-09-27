@@ -1,11 +1,14 @@
 {
   "index": "Start Here",
+  "computer-science": "Computer Science",
   "bitcoin": "Bitcoin",
-  "typescript": "TypeScript",
-  "python": "Python",
-  "react": "React",
-  "web3": "Web3",
   "cryptography": "Cryptography",
+  "coding-challenges": "Coding Challenges",
+  "cpp": "C++",
+  "python": "Python",
+  "typescript": "TypeScript",
+  "react": "React",
   "rust": "Rust",
-  "go": "Go"
+  "go": "Go",
+  "web3": "Web3"
 }
