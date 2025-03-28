@@ -1,15 +1,27 @@
 {
+  "name": "new_project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "dev": "next dev",
+    "dev": "next --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "dependencies": {
-    "next": "^13.4.3",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "nextra": "^2.5.2",
-    "nextra-theme-docs": "^2.5.2"
+    "next": "^15.2.1",
+    "nextra": "^4.2.16",
+    "nextra-theme-docs": "^4.2.16",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "22.13.10",
+    "@types/react": "19.0.10",
+    "typescript": "5.8.2"
   }
 }

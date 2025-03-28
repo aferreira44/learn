@@ -1,0 +1,2275 @@
+# AWS Cloud Practitioner Certification
+
+### What is Cloud Computing?
+
+- **What is Cloud Computing?**
+
+Introduction to on-demand delivery of IT resources over the internet with pay-as-you-go pricing
+
+Cloud Computing é basicamente alugar recursos de TI pela internet e só pagar pelo que usar. Em vez de comprar e manter servidores físicos, você "aluga" processamento, armazenamento e outros recursos da AWS conforme precisar. É tipo um aluguel de carro - só paga quando estiver usando.
+
+---
+
+- **The Different Types of Cloud Computing**
+    - **IaaS (Infraestrutura):** Você aluga os recursos básicos (servidores, rede, etc)
+    - **PaaS (Plataforma):** A AWS cuida da infraestrutura e você só se preocupa com suas aplicações
+    - **SaaS (Software):** Usa direto o software pronto pela internet (tipo Gmail)
+
+---
+
+- **AWS Global Infrastructure**
+
+Understanding AWS's worldwide network of data centers and edge locations
+
+A AWS tem data centers espalhados pelo mundo todo. Eles são organizados em Regiões (tipo São Paulo) e dentro de cada região tem várias Zonas de Disponibilidade (AZs) que são data centers isolados. Também tem os Edge Locations que são pontos de distribuição de conteúdo mais próximos dos usuários.
+
+---
+
+- **AWS Regions and Availability Zones**
+
+Exploring AWS's geographic regions and their isolated availability zones
+
+- **Regiões:** São áreas geográficas independentes (ex: us-east-1)
+- **AZs:** Data centers isolados dentro de uma região
+- **Cada região tem pelo menos 2 AZs para redundância**
+- **Você escolhe a região mais próxima dos seus usuários**
+
+---
+
+- **AWS Cloud Overview**
+
+High-level introduction to AWS's cloud computing platform
+
+A AWS é tipo um mercadão de serviços de TI na nuvem. Tem mais de 200 serviços diferentes que você pode usar:
+- **Computação (EC2)**
+- **Armazenamento (S3)**
+- **Banco de dados (RDS)**
+- **Redes (VPC)**
+- **E muito mais...**
+
+---
+
+- **Console Overview**
+
+Guide to navigating and using the AWS Management Console
+
+É a interface web para gerenciar tudo na AWS. Tipo um painel de controle onde você:
+- **Cria e gerencia recursos**
+- **Monitora custos**
+- **Configura serviços**
+- **Acessa documentação**
+
+---
+
+- **AWS Services Overview**
+
+Introduction to core AWS services and their capabilities
+
+Os principais serviços que você precisa conhecer:
+- **EC2:** Servidores virtuais
+- **S3:** Armazenamento de arquivos
+- **RDS:** Bancos de dados relacionais
+- **Lambda:** Funções serverless
+- **VPC:** Redes virtuais privadas
+
+---
+
+- **Shared Responsibility Model**
+
+Understanding security responsibilities between AWS and customers
+
+É tipo um contrato do que cada um faz:
+- **AWS:** Cuida da segurança DA nuvem (infraestrutura física, rede, etc)
+- **Cliente:** Cuida da segurança NA nuvem (dados, acessos, configurações)
+
+---
+
+- **AWS Acceptable Policy**
+
+Guidelines for acceptable use of AWS services and resources
+
+São as regras do que pode e não pode fazer na AWS:
+- **Não usar para spam**
+- **Não hospedar conteúdo ilegal**
+- **Não fazer ataques de rede**
+- **Respeitar limites de recursos**
+
+---
+
+### IAM - Identity and Access Management
+
+- **IAM Overview**
+
+O IAM é o serviço da AWS que controla quem pode fazer o que na conta. É tipo um porteiro que verifica identidades e permissões. Fundamental pra segurança porque permite controlar acesso granular aos recursos AWS.
+
+---
+
+- **IAM Users**
+
+São as identidades individuais que você cria pra pessoas acessarem a AWS. Cada usuário tem suas próprias credenciais e permissões específicas. É como dar um crachá personalizado pra cada funcionário da empresa.
+
+---
+
+- **IAM Groups**
+
+São conjuntos de usuários com permissões similares. Em vez de configurar permissões uma por uma, você coloca os usuários em grupos. Tipo colocar todos os desenvolvedores num grupo "devs" com as mesmas permissões.
+
+---
+
+- **IAM Policies**
+
+São documentos JSON que definem permissões. Elas dizem o que pode e não pode ser feito na AWS. É como uma lista de regras que diz "pode fazer isso, não pode fazer aquilo". Podem ser anexadas a usuários, grupos ou roles.
+
+---
+
+- **IAM MFA**
+
+Multi-Factor Authentication adiciona uma camada extra de segurança além da senha. Geralmente usa um app no celular que gera códigos. É como ter uma senha extra temporária além da normal.
+
+---
+
+- **IAM Access Keys, CLI, SDKs**
+
+São credenciais pra acesso programático à AWS via CLI ou SDK. Consistem em access key ID e secret access key. É tipo um usuário/senha especial pra programas e scripts.
+
+---
+
+- **AWS CLI**
+
+Command Line Interface da AWS permite gerenciar serviços via terminal. É mais rápido que o console web pra quem manja dos comandos. Ótimo pra automatizar tarefas.
+
+---
+
+- **AWS CloudShell**
+
+Shell baseado no navegador que já vem com AWS CLI instalado. Não precisa configurar nada no computador, é só abrir e **usar**. Perfeito pra quem não quer instalar CLI localmente.
+
+---
+
+- **IAM Roles**
+
+São identidades temporárias que serviços ou aplicações podem assumir. Em vez de credenciais fixas, o serviço "veste" uma role com permissões específicas. Muito usado com EC2.
+
+---
+
+- **IAM Security Tools**
+
+Ferramentas que analisam configurações de segurança do IAM. Ajudam a identificar problemas como permissões muito abertas ou usuários inativos. É tipo um scanner de segurança.
+
+---
+
+- **IAM Best Practices**
+
+Conjunto de recomendações de segurança: usar MFA, princípio do menor privilégio, remover credenciais não usadas, usar grupos pra gerenciar permissões. São as "regras de ouro" do IAM.
+
+---
+
+- **Shared Responsibility Model for IAM**
+
+Define o que é responsabilidade da AWS e do cliente no IAM. AWS cuida da infraestrutura do serviço, cliente gerencia usuários, grupos, políticas e permissões. É tipo um contrato de quem faz o que.
+
+---
+
+### EC2 - Elastic Compute Cloud
+
+- **EC2 Overview**
+
+EC2 é o serviço de máquinas virtuais da AWS. Permite alugar computadores virtuais na nuvem. É como ter um computador remoto que você pode configurar e usar como quiser. É o serviço mais básico e popular da AWS, usado para hospedar aplicações, sites e praticamente qualquer coisa que rode em um servidor.
+
+---
+
+- **EC2 Instance Types**
+
+São os diferentes "modelos" de máquinas virtuais disponíveis. Cada tipo é otimizado para um uso específico:
+- **T2/T3 (econômicos):** Para sites e apps pequenos
+- **M5 (uso geral):** Equilíbrio entre CPU e memória
+- **C5 (computação):** Para processamento intenso
+- **R5 (memória):** Para bancos de dados
+- **G4 (GPU):** Para gráficos e machine learning
+
+---
+
+- **EC2 Pricing**
+
+EC2 tem vários modelos de preço:
+- **On-Demand:** Pague por hora/segundo sem compromisso (mais caro, mais flexível)
+- **Reserved:** Contrato de 1-3 anos com desconto de até 75%
+- **Spot:** Aproveite capacidade não utilizada com desconto de até 90% (pode ser interrompido)
+- **Dedicated:** Servidores físicos exclusivos (mais caro, para requisitos específicos)
+
+---
+
+- **EC2 Security Groups**
+
+São como firewalls virtuais para suas instâncias EC2. Controlam o tráfego de entrada e saída baseado em regras:
+- **Permitem especificar portas e IPs de origem/destino**
+- **Regras são "stateful" (se entrada é permitida, saída também é)**
+- **Podem referenciar outros security groups**
+- **Bloqueiam todo tráfego por padrão**
+
+---
+
+- **EC2 Key Pairs**
+
+São pares de chaves criptográficas usados para acessar instâncias EC2 com segurança:
+- **Chave pública fica na instância**
+- **Chave privada fica com você (nunca compartilhe!)**
+- **Sem a chave privada, não dá pra acessar a instância via SSH**
+- **Cada instância pode usar um par de chaves diferente**
+
+---
+
+- **SSH Access to EC2**
+
+É o método para se conectar remotamente a instâncias Linux:
+- **No Windows: use PuTTY ou PowerShell**
+- **No Mac/Linux: use terminal com comando ssh**
+- **Formato: ssh -i "chave.pem" ec2-user@ip-da-instancia**
+- **Para Windows, use RDP em vez de SSH**
+
+---
+
+- **EC2 Instance Roles**
+
+São identidades IAM que você atribui às instâncias EC2:
+- **Permitem que a instância acesse outros serviços AWS sem credenciais fixas**
+- **Mais seguro que armazenar access keys na instância**
+- **Permissões podem ser alteradas a qualquer momento**
+- **Aplicações na instância usam automaticamente as permissões da role**
+
+---
+
+- **EC2 Instance Purchasing Options**
+
+Diferentes formas de "comprar" instâncias além do básico On-Demand:
+- **Reserved:** Pague adiantado por 1-3 anos para economizar
+- **Spot:** Use capacidade ociosa por preço muito menor (mas pode ser interrompido)
+- **Dedicated Hosts:** Servidor físico inteiro só pra você
+- **Savings Plans:** Compromisso de gasto por hora para obter desconto
+
+---
+
+- **IP Address Charges in AWS**
+
+Cobranças relacionadas a endereços IP:
+- **IPs privados são gratuitos**
+- **IP público dinâmico é gratuito quando a instância está rodando**
+- **IP elástico (fixo) tem custo quando não associado a uma instância rodando**
+- **Múltiplos IPs elásticos na mesma instância têm custo adicional**
+
+---
+
+- **Shared Responsibility Model for EC2**
+
+Divisão de responsabilidades de segurança:
+- **AWS:** Infraestrutura física, rede, hipervisor, disponibilidade
+- **Cliente:** Sistema operacional, firewall (security groups), patches, dados, aplicações
+- **Resumindo: AWS cuida do hardware, você cuida do software**
+
+---
+
+### EC2 - Instance Storage
+
+- **EBS Overview**
+
+EBS (Elastic Block Store) é o serviço de armazenamento em blocos da AWS. É como um HD virtual que você conecta nas suas instâncias EC2. Pode ser desconectado de uma instância e reconectado em outra. Os dados persistem mesmo quando a instância é desligada. Perfeito para bancos de dados, arquivos de sistema e aplicações que precisam de armazenamento persistente.
+
+---
+
+- **EBS Multi-Attach**
+
+Permite conectar um único volume EBS a várias instâncias EC2 ao mesmo tempo. Só funciona com volumes io1/io2 e todas as instâncias precisam estar na mesma zona de disponibilidade. É útil para clusters de alta disponibilidade onde múltiplos servidores precisam acessar o mesmo armazenamento simultaneamente.
+
+---
+
+- **EBS Snapshots**
+
+São backups pontuais dos seus volumes EBS. É como tirar uma foto do seu HD virtual em um momento específico. Snapshots são incrementais (só salvam o que mudou) e podem ser usados para:
+- **Criar novos volumes**
+- **Copiar dados entre regiões**
+- **Proteger contra perda de dados**
+
+---
+
+- **AMI Overview**
+
+AMI (Amazon Machine Image) é como um template para criar instâncias EC2. Inclui o sistema operacional, aplicações e configurações. É tipo uma imagem de disco que você usa para clonar servidores. Você pode criar suas próprias AMIs ou usar as públicas. Ótimo para padronizar ambientes e acelerar implantações.
+
+---
+
+- **EC2 Image Builder**
+
+Serviço que automatiza a criação, manutenção e validação de AMIs. É como uma fábrica de AMIs:
+- **Cria AMIs padronizadas automaticamente**
+- **Aplica patches e atualizações de segurança**
+- **Testa as AMIs antes de disponibilizá-las**
+- **Distribui as AMIs para várias regiões**
+
+---
+
+- **EC2 Instance Store**
+
+É armazenamento físico temporário diretamente conectado ao servidor que hospeda sua instância EC2. É super rápido (melhor performance), mas os dados são perdidos quando a instância para ou termina. É tipo um SSD diretamente plugado na máquina. Bom para cache, dados temporários ou qualquer coisa que não precise ser permanente.
+
+---
+
+- **EFS Overview**
+
+EFS (Elastic File System) é um sistema de arquivos compartilhado na nuvem. É como um NAS (Network Attached Storage) que múltiplas instâncias EC2 podem acessar simultaneamente, mesmo em diferentes zonas de disponibilidade. Escala automaticamente, então você nunca precisa se preocupar com espaço. Perfeito para compartilhamento de arquivos entre servidores.
+
+---
+
+- **Shared Responsibility Model for EC2 Storage**
+
+Na divisão de responsabilidades para armazenamento:
+- **AWS:** Infraestrutura de armazenamento, replicação, disponibilidade
+- **Cliente:** Backup/snapshot, criptografia de dados, configurações de acesso
+- **Resumindo: AWS garante que o armazenamento funcione, você cuida dos seus dados**
+
+---
+
+- **Amazon FSx Overview**
+
+FSx oferece sistemas de arquivos de alto desempenho para cargas de trabalho específicas:
+- **FSx for Windows:** Compartilhamento de arquivos compatível com Windows (SMB)
+- **FSx for Lustre:** Para computação de alto desempenho (HPC)
+- **FSx for NetApp ONTAP:** Armazenamento empresarial híbrido
+- **É como ter um servidor de arquivos especializado na nuvem**
+
+---
+
+### ELB & ASG - Elastic Load Balancing & Auto Scaling Groups
+
+- **High Availability, Scalability, Elasticity**
+
+Conceitos fundamentais para aplicações na nuvem:
+- **Alta Disponibilidade:** Sistema continua funcionando mesmo se um componente falhar (usando múltiplas AZs)
+- **Escalabilidade:** Capacidade de aumentar recursos para lidar com mais carga (vertical = máquinas maiores, horizontal = mais máquinas)
+- **Elasticidade:** Capacidade de escalar automaticamente conforme necessário (e reduzir quando não precisa mais)
+
+---
+
+- **Elastic Load Balancing (ELB) Overview**
+
+ELB distribui tráfego entre múltiplas instâncias EC2. É como um porteiro de hotel que direciona pessoas para diferentes atendentes disponíveis. Benefícios:
+- **Distribui carga uniformemente**
+- **Faz health checks (remove instâncias problemáticas)**
+- **Oferece SSL/TLS (HTTPS)**
+- **Alta disponibilidade entre zonas**
+
+---
+
+- **Application Load Balancer (ALB) Overview**
+
+Tipo de ELB que trabalha na camada de aplicação (HTTP/HTTPS). É mais inteligente que o Classic Load Balancer:
+- **Roteamento baseado em URL (exemplo.com/users vai para um serviço, exemplo.com/products para outro)**
+- **Roteamento baseado em hostname (api.exemplo.com vs. www.exemplo.com)**
+- **Suporte a containers e microserviços**
+- **Redirecionamento HTTP para HTTPS**
+
+---
+
+- **Auto Scaling Groups (ASG) Overview**
+
+Serviço que automaticamente ajusta o número de instâncias EC2 baseado na demanda. É como um gerente que contrata mais funcionários quando o movimento aumenta e demite quando cai:
+- **Escala horizontalmente (adiciona/remove instâncias)**
+- **Garante número mínimo e máximo de instâncias**
+- **Substitui automaticamente instâncias não saudáveis**
+- **Integra-se com ELB para distribuição de carga**
+
+---
+
+- **Auto Scaling Groups (ASG) Strategies**
+
+Diferentes formas de decidir quando escalar:
+- **Manual:** Você define o número exato de instâncias
+- **Dinâmico:** Escala baseado em métricas (CPU > 70% = adiciona instância)
+- **Programado:** Escala em horários específicos (adiciona instâncias antes do horário de pico)
+- **Preditivo:** Usa machine learning para prever tráfego futuro e escalar antecipadamente
+
+---
+
+### S3 - Simple Storage Service
+
+- **S3 Overview**
+
+Serviço de armazenamento de objetos da AWS. É como um gigantesco HD na nuvem onde você guarda arquivos (objetos). Características:
+- **Armazenamento "infinito" (não precisa provisionar)**
+- **Alta durabilidade (99,999999999% - 11 noves)**
+- **Usado para backup, compartilhamento, hosting de sites, data lakes, etc.**
+- **Organizado em "buckets" (pastas raiz) com nomes únicos globalmente**
+
+---
+
+- **S3 Security: Bucket Policy**
+
+Documentos JSON que controlam acesso aos buckets S3. É como as regras de quem pode entrar no seu armazém:
+- **Políticas baseadas em recursos (aplicadas diretamente ao bucket)**
+- **Controla acesso por usuário, IP, ação (GET, PUT, DELETE)**
+- **Pode forçar criptografia, restringir acesso público**
+- **Complementa as permissões IAM**
+
+---
+
+- **S3 Website Overview**
+
+S3 pode hospedar sites estáticos (HTML, CSS, JS). É como transformar seu armazém em uma vitrine pública:
+- **URL formato: http://bucket-name.s3-website-region.amazonaws.com**
+- **Barato e escala automaticamente**
+- **Precisa habilitar "Static website hosting"**
+- **Ideal para sites que não precisam de processamento no servidor**
+
+---
+
+- **S3 Versioning Overview**
+
+Recurso que mantém múltiplas versões de um objeto. É como um controle de versão para seus arquivos:
+- **Protege contra deleções acidentais (pode recuperar versões antigas)**
+- **Fácil de reverter para versões anteriores**
+- **Uma vez habilitado, não pode ser desabilitado (só suspenso)**
+- **Aumenta o custo de armazenamento (guarda todas as versões)**
+
+---
+
+- **S3 Replication Overview**
+
+Copia objetos automaticamente entre buckets. É como ter um sistema que duplica documentos entre diferentes escritórios:
+- **Cross-Region Replication (CRR): copia entre regiões**
+- **Same-Region Replication (SRR): copia na mesma região**
+- **Assíncrono (pequeno delay na cópia)**
+- **Casos de uso: conformidade, menor latência, replicação entre contas**
+
+---
+
+- **S3 Storage Classes Overview**
+
+Diferentes níveis de armazenamento com diferentes custos e disponibilidade:
+- **Standard:** Acesso frequente, mais caro
+- **Intelligent-Tiering:** Move automaticamente entre tiers
+- **Standard-IA:** Acesso infrequente, mais barato
+- **One Zone-IA:** Mais barato, mas só em uma AZ
+- **Glacier:** Arquivamento barato, recuperação lenta
+- **Glacier Deep Archive:** Arquivamento ultrabaixo custo, recuperação muito lenta
+
+---
+
+- **S3 Encryption**
+
+Proteção dos dados armazenados no S3. É como guardar seus arquivos em cofres trancados:
+- **Encryption in transit: SSL/TLS (HTTPS)**
+- **Server-side encryption: AWS gerencia chaves (SSE-S3)**
+- **Server-side com KMS: Você controla as chaves (SSE-KMS)**
+- **Client-side: Você criptografa antes de enviar**
+
+---
+
+- **IAM Access Analyzer for S3**
+
+Ferramenta que identifica buckets com acesso externo. É como um sistema de segurança que alerta quando seu armazém está aberto para estranhos:
+- **Identifica políticas que permitem acesso público**
+- **Alerta sobre compartilhamentos entre contas**
+- **Ajuda a garantir que só quem deve tem acesso**
+- **Parte da estratégia de segurança para evitar vazamentos**
+
+---
+
+- **Shared Responsibility Model for S3**
+
+Divisão de responsabilidades de segurança:
+- **AWS:** Infraestrutura, disponibilidade, durabilidade, criptografia
+- **Cliente:** Configuração de acesso, políticas, versionamento, dados sensíveis
+- **Resumindo: AWS garante que o S3 funcione, você cuida do que coloca lá e quem acessa**
+
+---
+
+- **AWS Snow Family Overview**
+
+Dispositivos físicos para transferência de dados em massa. É como usar caminhões em vez da internet para mover grandes volumes de dados:
+- **Snowcone:** Menor, para ambientes com restrições
+- **Snowball:** Maleta robusta para transferir petabytes
+- **Snowmobile:** Literalmente um contêiner em um caminhão para exabytes
+- **Ideal quando internet é lenta, cara ou inexistente**
+
+---
+
+- **AWS Snowball Edge - Pricing**
+
+Modelo de preço do Snowball Edge:
+- **Taxa de serviço por trabalho (job)**
+- **Taxa diária para uso do dispositivo (após primeiros 10 dias)**
+- **Taxa de transferência de dados (só para entrada na AWS)**
+- **Mais barato que transferir grandes volumes pela internet**
+- **Economiza tempo e largura de banda**
+
+---
+
+### Database & Analytics
+
+- **Databases Introduction**
+
+AWS oferece vários tipos de bancos de dados para diferentes necessidades. É como ter diferentes tipos de armários para guardar coisas diferentes:
+- **Relacionais (SQL):** Para dados estruturados com relações (RDS)
+- **NoSQL:** Para dados não estruturados ou semi-estruturados (DynamoDB)
+- **In-memory:** Para acesso ultra-rápido (ElastiCache)
+- **Cada tipo é otimizado para casos de uso específicos**
+
+---
+
+- **RDS & Aurora Overview**
+
+RDS (Relational Database Service) é o serviço de banco de dados relacional gerenciado:
+- **Suporta MySQL, PostgreSQL, MariaDB, Oracle, SQL Server**
+- **AWS cuida de patches, backups, alta disponibilidade**
+- **Aurora é a versão turbinada da AWS (5x mais rápido que MySQL, 3x que PostgreSQL)**
+- **É como ter um DBA cuidando do seu banco 24/7**
+
+---
+
+- **RDS Deployments Options**
+
+Diferentes configurações para seu banco RDS:
+- **Single AZ:** Um banco em uma zona (mais barato, menos resiliente)
+- **Multi-AZ:** Réplica síncrona em outra zona (para alta disponibilidade)
+- **Read Replicas:** Cópias somente-leitura para distribuir consultas (para performance)
+- **Multi-Region:** Bancos em diferentes regiões (para disaster recovery e latência global)
+
+---
+
+- **ElastiCache Overview**
+
+Serviço de cache na memória gerenciado. É como um super-acelerador para seu banco de dados:
+- **Suporta Redis e Memcached**
+- **Armazena dados frequentemente acessados na RAM**
+- **Reduz drasticamente tempo de resposta (microssegundos)**
+- **Ideal para sessões de usuário, cache de páginas, leaderboards de jogos**
+
+---
+
+- **DynamoDB Overview**
+
+Banco NoSQL totalmente gerenciado. É como uma planilha gigante que escala infinitamente:
+- **Armazena dados em formato chave-valor**
+- **Performance consistente em qualquer escala (milissegundos)**
+- **Serverless (pague só pelo que usar)**
+- **Ideal para aplicações web, mobile, jogos, IoT**
+
+---
+
+- **DynamoDB Global Tables**
+
+Versão multi-região do DynamoDB. É como ter cópias sincronizadas do seu banco em vários países:
+- **Replicação ativa-ativa entre regiões**
+- **Leitura/escrita local com baixa latência em qualquer região**
+- **Continua funcionando mesmo se uma região cair**
+- **Ideal para aplicações globais que precisam de baixa latência**
+
+---
+
+- **Redshift Overview**
+
+Data warehouse para análise de dados. É como um super-computador otimizado para analisar petabytes de dados:
+- **Armazena e analisa dados estruturados**
+- **10x mais rápido que data warehouses tradicionais**
+- **Usa processamento paralelo massivo (MPP)**
+- **Ideal para relatórios, BI, análise de dados históricos**
+
+---
+
+- **EMR Overview**
+
+EMR (Elastic MapReduce) processa grandes volumes de dados com frameworks open-source. É como ter um supercomputador temporário para análise de big data:
+- **Usa Hadoop, Spark, HBase, Presto, etc.**
+- **Processa petabytes de dados distribuídos**
+- **Cluster escala automaticamente**
+- **Ideal para machine learning, processamento de logs, ETL**
+
+---
+
+- **Athena Overview**
+
+Serviço de consulta interativa sem servidor. É como fazer perguntas diretamente aos seus dados no S3:
+- **Consulta dados no S3 usando SQL padrão**
+- **Sem necessidade de carregar dados ou configurar servidores**
+- **Pague apenas pelas consultas executadas**
+- **Ideal para análises ad-hoc, logs, dados semi-estruturados**
+
+---
+
+- **QuickSight Overview**
+
+Serviço de Business Intelligence (BI) na nuvem. É como ter um especialista em visualização de dados trabalhando para você:
+- **Cria dashboards e visualizações interativas**
+- **Conecta-se a várias fontes de dados (S3, Athena, Redshift, RDS)**
+- **Usa machine learning para insights automáticos**
+- **Compartilha relatórios com a organização**
+
+---
+
+- **DocumentDB Overview**
+
+Banco de dados compatível com MongoDB. É como um MongoDB que você não precisa gerenciar:
+- **Armazena dados em formato de documento (JSON)**
+- **Escala automaticamente (até 64TB por cluster)**
+- **Alta disponibilidade com replicação em 3 AZs**
+- **Ideal para catálogos, perfis de usuário, gerenciamento de conteúdo**
+
+---
+
+- **Neptune Overview**
+
+Banco de dados de grafos gerenciado. É como um banco especializado em relacionamentos complexos:
+- **Armazena bilhões de relacionamentos**
+- **Consulta relacionamentos com alta performance**
+- **Suporta Gremlin e SPARQL (linguagens de consulta de grafos)**
+- **Ideal para redes sociais, detecção de fraude, recomendações**
+
+---
+
+- **Timestream Overview**
+
+Banco de dados de séries temporais. É como um banco otimizado para dados que mudam com o tempo:
+- **Armazena dados que têm timestamp (hora/data)**
+- **Comprime automaticamente dados antigos**
+- **Consultas otimizadas para análise temporal**
+- **Ideal para IoT, DevOps, telemetria, monitoramento**
+
+---
+
+- **QLDB Overview**
+
+QLDB (Quantum Ledger Database) é um banco de dados de registro imutável. É como um livro-razão digital que não pode ser alterado:
+- **Mantém histórico completo e imutável de mudanças**
+- **Criptograficamente verificável**
+- **Centralizado (diferente de blockchain)**
+- **Ideal para registros financeiros, médicos, sistemas que precisam de auditoria**
+
+---
+
+- **Managed Blockchain Overview**
+
+Serviço para criar e gerenciar redes blockchain. É como ter uma infraestrutura blockchain sem precisar configurar nada:
+- **Suporta Hyperledger Fabric e Ethereum**
+- **Rede descentralizada entre múltiplos participantes**
+- **Transações imutáveis e verificáveis**
+- **Ideal para rastreamento de cadeia de suprimentos, registros financeiros descentralizados**
+
+---
+
+- **Glue Overview**
+
+Serviço de ETL (Extract, Transform, Load) totalmente gerenciado. É como um assistente que organiza seus dados automaticamente:
+- **Descobre e cataloga metadados**
+- **Transforma dados entre formatos diferentes**
+- **Gera código Python/Scala automaticamente**
+- **Ideal para preparar dados para análise, data lakes, machine learning**
+
+---
+
+- **DMS Overview**
+
+DMS (Database Migration Service) migra bancos de dados para a AWS. É como um serviço de mudança especializado em bancos de dados:
+- **Migra bancos on-premises para AWS com tempo de inatividade mínimo**
+- **Suporta migrações homogêneas (mesmo banco) e heterogêneas (bancos diferentes)**
+- **Replicação contínua para manter bancos sincronizados**
+- **Mais de 300.000 bancos já migraram com DMS**
+
+---
+
+### ECS, Lambda, Batch, Lightsail
+
+- **What is Docker?**
+
+Docker é uma tecnologia de containerização. É como empacotar uma aplicação e todas suas dependências em uma caixa portátil:
+- **Containers são leves (segundos para iniciar vs minutos de VMs)**
+- **Consistentes em qualquer ambiente (dev, teste, produção)**
+- **Isolados uns dos outros**
+- **Imagens Docker são receitas para criar containers**
+
+---
+
+- **ECS, Fargate & ECR Overview**
+
+ECS (Elastic Container Service) é o serviço de orquestração de containers da AWS:
+- **Gerencia onde e como seus containers Docker rodam**
+- **EC2 launch type: você gerencia os servidores**
+- **Fargate: serverless (AWS gerencia a infraestrutura)**
+- **ECR: registro privado para armazenar imagens Docker**
+
+---
+
+- **Amazon EKS**
+
+EKS (Elastic Kubernetes Service) é Kubernetes gerenciado pela AWS. É como ter um especialista em Kubernetes trabalhando para você:
+- **Kubernetes é um orquestrador de containers open-source**
+- **Mais complexo que ECS, mas mais poderoso e portável**
+- **AWS cuida do plano de controle (control plane)**
+- **Ideal para quem já usa Kubernetes ou quer evitar lock-in**
+
+---
+
+- **Serverless Introduction**
+
+Modelo onde você não gerencia servidores, só código e configurações:
+- **Sem provisionar ou manter servidores**
+- **Escala automaticamente com a demanda**
+- **Paga apenas pelo que usar (tempo de execução)**
+- **Exemplos: Lambda, DynamoDB, S3, API Gateway**
+
+---
+
+- **Lambda Overview**
+
+Serviço de computação serverless que executa código em resposta a eventos. É como ter funções que rodam sob demanda:
+- **Suporta Node.js, Python, Java, C#, Go, Ruby**
+- **Limite de 15 minutos de execução**
+- **Escala automaticamente (de 0 a milhares de instâncias)**
+- **Paga apenas pelo tempo de computação usado**
+- **Ideal para processamento de eventos, APIs, automações**
+
+---
+
+- **API Gateway Overview**
+
+Serviço para criar, publicar e gerenciar APIs. É como um porteiro inteligente para suas aplicações:
+- **Cria endpoints HTTP/REST/WebSocket**
+- **Conecta-se com Lambda, EC2, outros serviços AWS**
+- **Gerencia autenticação, throttling, cache**
+- **Versiona e publica diferentes ambientes (dev, prod)**
+- **Ideal para criar APIs para aplicações web/mobile**
+
+---
+
+- **Batch Overview**
+
+Serviço para executar jobs em batch (lote) de forma eficiente. É como um agendador de tarefas pesadas:
+- **Executa cargas de trabalho em paralelo**
+- **Gerencia automaticamente EC2 ou Spot Instances**
+- **Prioriza, agenda e orquestra jobs**
+- **Ideal para processamento de dados, renderização, simulações**
+
+---
+
+- **Lightsail Overview**
+
+Serviço simplificado de VPS (Virtual Private Server). É como EC2 para iniciantes:
+- **Interface simples para criar servidores virtuais**
+- **Preços fixos mensais (sem surpresas)**
+- **Inclui tudo: instância, armazenamento, transferência**
+- **Templates para WordPress, LAMP, Node.js, etc.**
+- **Ideal para projetos simples, blogs, sites pequenos**
+
+---
+
+### Deployments & Managing Infrastructure at Scale
+
+- **CloudFormation Overview**
+
+Serviço de Infrastructure as Code (IaC) da AWS. É como escrever uma receita para sua infraestrutura:
+- **Define recursos usando templates YAML/JSON**
+- **Cria, atualiza e deleta recursos de forma automatizada**
+- **Gerencia dependências entre recursos**
+- **Permite replicar ambientes idênticos facilmente**
+- **Gratuito (você paga apenas pelos recursos criados)**
+
+---
+
+- **CDK Overview**
+
+CDK (Cloud Development Kit) permite definir infraestrutura usando linguagens de programação. É como CloudFormation, mas para desenvolvedores:
+- **Usa TypeScript, Python, Java, .NET em vez de YAML/JSON**
+- **Oferece bibliotecas de componentes reutilizáveis**
+- **Gera CloudFormation por baixo dos panos**
+- **Permite usar lógica de programação (loops, condicionais)**
+- **Ideal para quem prefere código a configuração**
+
+---
+
+- **Beanstalk Overview**
+
+Serviço PaaS (Platform as a Service) para implantar aplicações. É como um "Heroku da AWS":
+- **Você fornece o código, AWS cuida da infraestrutura**
+- **Provisiona automaticamente EC2, load balancers, auto-scaling**
+- **Suporta várias plataformas (Java, .NET, PHP, Node.js, Python, etc.)**
+- **Você mantém controle total dos recursos**
+- **Ideal para desenvolvedores que não querem gerenciar infraestrutura**
+
+---
+
+- **CodeDeploy Overview**
+
+Serviço para automatizar implantações de aplicações. É como um entregador especializado em software:
+- **Implanta em EC2, on-premises, Lambda, ECS**
+- **Evita downtime com implantações rolling/blue-green**
+- **Integra-se com ferramentas de CI/CD**
+- **Rollback automático em caso de falha**
+- **Ideal para automatizar a entrega de aplicações**
+
+---
+
+- **CodeCommit Overview**
+
+Serviço de controle de versão baseado em Git. É como um GitHub/GitLab privado na AWS:
+- **Repositórios Git privados e altamente disponíveis**
+- **Totalmente gerenciado (sem servidores para manter)**
+- **Integração com IAM para controle de acesso**
+- **Criptografia em repouso e em trânsito**
+- **Ideal para armazenar código-fonte com segurança**
+
+---
+
+- **CodeBuild Overview**
+
+Serviço de build totalmente gerenciado. É como um construtor que compila seu código:
+- **Compila código-fonte, executa testes, produz pacotes**
+- **Escala automaticamente (múltiplos builds em paralelo)**
+- **Pague apenas pelo tempo de computação usado**
+- **Usa containers Docker para ambientes de build consistentes**
+- **Ideal para compilar e testar código automaticamente**
+
+---
+
+- **CodePipeline Overview**
+
+Serviço de entrega contínua (CD). É como uma esteira de produção para seu software:
+- **Automatiza o processo de release (código → teste → produção)**
+- **Visualização do fluxo de entrega**
+- **Integra-se com serviços AWS e ferramentas de terceiros**
+- **Detecção automática de mudanças no código-fonte**
+- **Ideal para implementar CI/CD completo**
+
+---
+
+- **CodeArtifact Overview**
+
+Repositório de artefatos gerenciado. É como um depósito seguro para pacotes e bibliotecas:
+- **Armazena pacotes para Maven, npm, PyPI, etc.**
+- **Controle de versão para dependências**
+- **Integração com ferramentas de build comuns**
+- **Políticas de acesso via IAM**
+- **Ideal para compartilhar componentes entre equipes**
+
+---
+
+- **Systems Manager (SSM) Overview**
+
+Serviço para gerenciar recursos AWS em escala. É como um centro de controle para sua infraestrutura:
+- **Visualiza e controla infraestrutura AWS e on-premises**
+- **Automatiza tarefas operacionais**
+- **Gerencia patches e configurações**
+- **Mantém servidores em conformidade**
+- **Ideal para operações de TI em grande escala**
+
+---
+
+- **SSM Session Manager**
+
+Componente do Systems Manager para acessar instâncias. É como um SSH/RDP seguro sem abrir portas:
+- **Acesso shell às instâncias EC2 via navegador**
+- **Não precisa de chaves SSH, portas abertas ou bastion hosts**
+- **Todas as sessões são registradas (CloudTrail/S3)**
+- **Controle de acesso granular via IAM**
+- **Ideal para acesso seguro a servidores**
+
+---
+
+- **SSM Parameter Store**
+
+Serviço para armazenar configurações e segredos. É como um cofre para informações sensíveis:
+- **Armazena strings, senhas, configurações, licenças**
+- **Valores podem ser criptografados (usando KMS)**
+- **Controle de versão para parâmetros**
+- **Acesso controlado via IAM**
+- **Gratuito para uso básico**
+- **Ideal para centralizar configurações de aplicações**
+
+---
+
+- **Deployment Summary**
+
+Resumo das opções de implantação na AWS:
+- **CloudFormation/CDK:** Para infraestrutura como código
+- **Beanstalk:** Para implantação simplificada de aplicações
+- **CodePipeline/CodeBuild/CodeDeploy:** Para automação de CI/CD
+- **Systems Manager:** Para gerenciamento operacional
+- **A escolha depende da complexidade e necessidades específicas**
+- **Automação é a chave para escala e consistência**
+
+---
+
+### AWS Global Infrastructure
+
+- **Why Global Applications?**
+
+Razões para distribuir aplicações globalmente:
+- **Menor latência:** Usuários acessam recursos mais próximos deles
+- **Disaster Recovery:** Continua funcionando mesmo se uma região cair
+- **Proteção contra ataques:** Distribui e absorve impacto de DDoS
+- **Conformidade:** Atende requisitos legais de localização de dados
+- **É como ter filiais da sua empresa em diferentes países**
+
+---
+
+- **Route 53 Overview**
+
+Serviço de DNS (Domain Name System) da AWS. É como uma lista telefônica global da internet:
+- **Registra domínios (exemplo.com)**
+- **Roteia usuários para endpoints mais próximos**
+- **Faz health checks e failover automático**
+- **Suporta roteamento baseado em latência, geolocalização, ponderado**
+- **Alta disponibilidade (100% SLA)**
+- **Ideal para gerenciar tráfego global**
+
+---
+
+- **CloudFront Overview**
+
+CDN (Content Delivery Network) da AWS. É como ter cópias do seu conteúdo em servidores ao redor do mundo:
+- **Armazena cópias em cache em +400 pontos de presença**
+- **Reduz latência para usuários globais**
+- **Protege contra ataques DDoS**
+- **Integra-se com Shield e WAF para segurança**
+- **Ideal para distribuição de conteúdo estático e streaming**
+
+---
+
+- **S3 Transfer Acceleration**
+
+Recurso para acelerar uploads para S3. É como usar uma rodovia expressa para seus arquivos:
+- **Usa a rede de pontos de presença do CloudFront**
+- **Arquivos viajam pela rede backbone da AWS (mais rápida)**
+- **Quanto maior a distância, maior o benefício**
+- **Ideal para uploads de arquivos grandes de longas distâncias**
+
+---
+
+- **AWS Global Accelerator**
+
+Serviço que melhora disponibilidade e performance de aplicações. É como criar uma via expressa dedicada na internet:
+- **Usa a rede global da AWS em vez da internet pública**
+- **Fornece IPs estáticos que servem como ponto de entrada**
+- **Roteia tráfego para endpoints saudáveis em diferentes regiões**
+- **Reduz latência e aumenta confiabilidade**
+- **Ideal para aplicações não-HTTP (gaming, IoT, voz)**
+
+---
+
+- **AWS Outposts**
+
+Serviço que leva infraestrutura AWS para seu data center. É como ter um pedaço da AWS dentro da sua empresa:
+- **Hardware e serviços AWS em suas instalações**
+- **Mesmas APIs, ferramentas e funcionalidades da nuvem**
+- **AWS gerencia e mantém a infraestrutura**
+- **Ideal para requisitos de baixa latência, processamento local ou residência de dados**
+
+---
+
+- **AWS WaveLength**
+
+Infraestrutura AWS dentro de redes 5G. É como colocar servidores AWS diretamente nas torres de celular:
+- **Implanta aplicações dentro da rede das operadoras**
+- **Latência ultra-baixa (menos de 10ms)**
+- **Evita que dados trafeguem pela internet pública**
+- **Ideal para AR/VR, jogos em tempo real, controle industrial, veículos autônomos**
+
+---
+
+- **AWS Local Zones**
+
+Extensões de regiões AWS localizadas perto de grandes cidades. É como mini-regiões AWS mais próximas dos usuários:
+- **Oferece serviços selecionados (computação, banco de dados, armazenamento)**
+- **Conecta-se perfeitamente com a região principal**
+- **Latência de milissegundos para usuários metropolitanos**
+- **Ideal para mídia & entretenimento, jogos, aplicações sensíveis à latência**
+
+---
+
+### Cloud Integrations
+
+- **Cloud Integrations Overview**
+
+Serviços que permitem que aplicações se comuniquem entre si. É como criar pontes entre diferentes sistemas:
+- **Desacoplamento:** Sistemas funcionam independentemente
+- **Microserviços:** Arquitetura de componentes pequenos e especializados
+- **Comunicação assíncrona:** Sistemas não precisam estar disponíveis ao mesmo tempo
+- **Diferentes padrões:** Filas, streaming, pub/sub, API, webhooks
+
+---
+
+- **SQS Overview**
+
+SQS (Simple Queue Service) é um serviço de filas gerenciado. É como uma esteira de correspondência entre sistemas:
+- **Mensagens ficam na fila até serem processadas**
+- **Desacopla produtores e consumidores**
+- **Escala automaticamente (praticamente ilimitado)**
+- **Retenção de mensagens por até 14 dias**
+- **Ideal para processamento assíncrono e distribuído**
+
+---
+
+- **Kinesis Overview**
+
+Serviço para processamento de dados em tempo real. É como um rio de dados fluindo continuamente:
+- **Kinesis Data Streams:** Captura e armazena streams de dados
+- **Kinesis Data Firehose:** Carrega streams em destinos (S3, Redshift, etc.)
+- **Kinesis Data Analytics:** Analisa streams com SQL
+- **Kinesis Video Streams:** Captura e processa streams de vídeo
+- **Ideal para logs, métricas, IoT, clickstreams, análise em tempo real**
+
+---
+
+- **SNS Overview**
+
+SNS (Simple Notification Service) é um serviço de mensagens pub/sub. É como um sistema de alto-falantes que anuncia mensagens:
+- **Um produtor envia para muitos consumidores**
+- **Até 12,5 milhões de assinantes por tópico**
+- **Entrega por vários protocolos (HTTP, email, SMS, SQS, Lambda)**
+- **Sem persistência (mensagens perdidas se o consumidor estiver offline)**
+- **Ideal para notificações, alertas e triggers de eventos**
+
+---
+
+- **Amazon MQ Overview**
+
+Serviço de message broker gerenciado. É como um tradutor entre sistemas legados:
+- **Compatível com protocolos padrão (JMS, AMQP, MQTT, etc.)**
+- **Suporta RabbitMQ e ActiveMQ**
+- **Migração mais fácil de sistemas on-premises**
+- **Menos recursos nativos AWS que SQS/SNS**
+- **Ideal para aplicações que já usam esses protocolos e precisam migrar para a nuvem**
+
+---
+
+### Cloud Monitoring
+
+- **CloudWatch Metrics & CloudWatch Alarms Overview**
+
+Serviço de monitoramento de recursos e aplicações AWS. É como um painel de controle com medidores para sua infraestrutura:
+- **Métricas:** Coleta dados de performance (CPU, memória, rede)
+- **Alarmes:** Notifica quando métricas ultrapassam limites definidos
+- **Dashboards:** Visualizações personalizadas de métricas
+- **Resolução padrão de 1 minuto (ou 1 segundo com resolução detalhada)**
+- **Ideal para monitorar saúde e performance de recursos**
+
+---
+
+- **CloudWatch Logs Overview**
+
+Serviço centralizado de gerenciamento de logs. É como um arquivo central onde todos os registros são armazenados:
+- **Coleta logs de EC2, Lambda, CloudTrail e outros serviços**
+- **Armazena indefinidamente (ou define retenção)**
+- **Pesquisa e filtra logs para troubleshooting**
+- **Insights extrai padrões e tendências automaticamente**
+- **Ideal para centralizar logs e solucionar problemas**
+
+---
+
+- **EventBridge Overview**
+
+Barramento de eventos serverless (anteriormente CloudWatch Events). É como um sistema nervoso central que conecta diferentes partes da sua aplicação:
+- **Roteia eventos entre serviços AWS e aplicações**
+- **Agenda eventos com base em padrões ou cronogramas**
+- **Suporta mais de 140 serviços AWS como fontes de eventos**
+- **Integra-se com SaaS externos (Zendesk, DataDog, etc.)**
+- **Ideal para arquiteturas orientadas a eventos e automação**
+
+---
+
+- **CloudTrail Overview**
+
+Serviço que registra todas as atividades da conta AWS. É como uma câmera de segurança que grava tudo que acontece:
+- **Registra todas as chamadas de API na sua conta**
+- **Quem fez o quê, quando e de onde**
+- **Armazena histórico de eventos por 90 dias por padrão**
+- **Pode enviar logs para S3 ou CloudWatch Logs**
+- **Essencial para auditoria, compliance e investigação de segurança**
+
+---
+
+- **X-Ray Overview**
+
+Serviço para análise e depuração de aplicações distribuídas. É como um raio-X que mostra o interior da sua aplicação:
+- **Visualiza fluxo de requisições através de microserviços**
+- **Identifica gargalos e erros**
+- **Mapeia dependências entre componentes**
+- **Analisa latência em cada segmento da aplicação**
+- **Ideal para troubleshooting de aplicações complexas**
+
+---
+
+- **CodeGuru Overview**
+
+Serviço baseado em ML para revisão de código e recomendações de performance. É como ter um desenvolvedor sênior revisando seu código:
+- **CodeGuru Reviewer:** Encontra bugs e vulnerabilidades no código
+- **CodeGuru Profiler:** Identifica problemas de performance e otimiza custos**
+- **Usa machine learning treinado com milhões de linhas de código da Amazon**
+- **Suporta Java e Python**
+- **Ideal para melhorar qualidade de código e reduzir custos**
+
+---
+
+- **AWS Health Dashboard**
+
+Painel personalizado que mostra a saúde dos serviços AWS que você usa. É como um boletim médico da sua infraestrutura:
+- **Mostra problemas que afetam especificamente sua conta**
+- **Notifica sobre manutenções programadas**
+- **Fornece orientações para resolver problemas**
+- **Histórico de eventos dos últimos 90 dias**
+- **Essencial para entender impactos de eventos AWS na sua infraestrutura**
+
+---
+
+### VPC & Networking
+
+- **VPC Overview**
+
+VPC (Virtual Private Cloud) é sua rede privada isolada na AWS. É como ter seu próprio datacenter virtual na nuvem:
+- **Isola seus recursos de outras contas AWS**
+- **Controla completamente seu ambiente de rede**
+- **Cada região tem uma VPC padrão**
+- **Você pode criar VPCs adicionais conforme necessário**
+- **Permite criar ambientes de rede complexos e seguros**
+
+---
+
+- **IP Addresses in AWS**
+
+Tipos de endereços IP usados na AWS:
+- **IPv4 privados:** Para comunicação interna (não acessíveis pela internet)
+- **IPv4 públicos:** Para recursos acessíveis pela internet
+- **Elastic IP:** Endereço IPv4 fixo que você pode associar/desassociar
+- **IPv6:** Suportado, mas opcional (todos são públicos)**
+- **CIDR blocks:** Define o intervalo de IPs disponíveis (ex: 10.0.0.0/16)**
+
+---
+
+- **VPC, Subnet, Internet Gateway & NAT Gateways**
+
+Componentes fundamentais de rede:
+- **Subnet:** Segmento de rede dentro da VPC (pública ou privada)
+- **Internet Gateway:** Porta de entrada/saída para a internet
+- **Route Table:** Define regras de roteamento de tráfego
+- **NAT Gateway:** Permite que instâncias em subnets privadas acessem a internet
+- **É como construir bairros, ruas e portões em sua cidade virtual**
+
+---
+
+- **Security Groups & Network Access Control List (NACL)**
+
+Controles de segurança de rede:
+- **Security Groups:** Firewall para instâncias (stateful)
+  - **Permite apenas regras de permissão (não de negação)**
+  - **Avalia todas as regras antes de decidir**
+  - **Aplica-se a instâncias específicas**
+- **NACLs:** Firewall para subnets (stateless)
+  - **Permite regras de permissão E negação**
+  - **Processa regras em ordem numérica**
+  - **Aplica-se a todas as instâncias na subnet**
+
+---
+
+- **VPC Flow Logs & VPC Peering**
+
+Monitoramento e conectividade:
+- **VPC Flow Logs:** Registra todo tráfego de rede
+  - **Captura metadados (IPs, portas, protocolos)**
+  - **Útil para troubleshooting e segurança**
+  - **Pode ser enviado para S3 ou CloudWatch Logs**
+- **VPC Peering:** Conecta duas VPCs diretamente
+  - **Permite comunicação usando IPs privados**
+  - **Não transitivo (A↔B e B↔C não significa A↔C)**
+  - **Não pode ter CIDRs sobrepostos**
+
+---
+
+- **VPC Endpoints - Interface & Gateway**
+
+Conecta VPC a serviços AWS sem usar internet pública:
+- **Gateway Endpoints:** Para S3 e DynamoDB (gratuitos)
+- **Interface Endpoints:** Para outros serviços AWS (pagos)
+- **Usa PrivateLink por baixo dos panos**
+- **Melhora segurança mantendo tráfego na rede AWS**
+- **Reduz custos de NAT Gateway e largura de banda**
+
+---
+
+- **PrivateLink**
+
+Tecnologia para conectar serviços entre VPCs e on-premises de forma privada:
+- **Expõe serviços de uma VPC para outras VPCs**
+- **Usa Network Load Balancer e ENIs (Elastic Network Interfaces)**
+- **Não precisa de VPC Peering, Internet Gateway, NAT, etc.**
+- **Escala horizontalmente**
+- **Ideal para compartilhar serviços entre contas ou com clientes**
+
+---
+
+- **Direct Connect & Site-to-Site VPN**
+
+Conexões dedicadas entre AWS e sua rede on-premises:
+- **Direct Connect:** Conexão física dedicada
+  - **Alta largura de banda (1Gbps a 100Gbps)**
+  - **Latência consistente e baixa**
+  - **Não usa internet pública (mais seguro)**
+  - **Leva semanas para ser estabelecido**
+- **Site-to-Site VPN:** Conexão criptografada via internet
+  - **Configuração rápida (minutos)**
+  - **Usa internet pública (menos confiável)**
+  - **Criptografado por padrão**
+
+---
+
+- **Client VPN**
+
+Serviço gerenciado de VPN para acesso remoto:
+- **Permite que usuários acessem recursos AWS e on-premises**
+- **Baseado em OpenVPN (compatível com clientes padrão)**
+- **Suporta autenticação via Active Directory, certificados, etc.**
+- **Controle de acesso granular por grupos**
+- **Ideal para funcionários remotos acessarem recursos internos**
+
+---
+
+- **Transit Gateway Overview**
+
+Hub central para conectar múltiplas VPCs e redes on-premises:
+- **Simplifica arquiteturas de rede complexas**
+- **Conecta milhares de VPCs e on-premises**
+- **Funciona como um roteador regional**
+- **Suporta multicast (único serviço AWS que suporta)**
+- **Reduz número de conexões de N*(N-1)/2 para N**
+- **Ideal para grandes organizações com muitas VPCs**
+
+---
+
+### Security & Compliance
+
+- **Shared Responsibility Model: Reminders & Examples**
+
+Divisão de responsabilidades de segurança entre AWS e cliente:
+- **AWS:** Segurança "DA" nuvem (infraestrutura física, rede, virtualização)
+- **Cliente:** Segurança "NA" nuvem (dados, configurações, acessos)
+- **Exemplos AWS:** Proteger datacenters, substituir hardware defeituoso
+- **Exemplos Cliente:** Criptografar dados, gerenciar usuários IAM, aplicar patches
+- **Lembre-se: quanto mais gerenciado o serviço, menos responsabilidade você tem**
+
+---
+
+- **DDoS Protection: WAF & Shield**
+
+Serviços para proteção contra ataques de negação de serviço:
+- **Shield Standard:** Proteção básica gratuita contra ataques comuns
+- **Shield Advanced:** Proteção premium com equipe especializada ($3K/mês)
+- **WAF (Web Application Firewall):** Filtra tráfego malicioso com regras personalizáveis
+- **Protege contra ataques de camada 3/4 (rede) e 7 (aplicação)**
+- **Integra-se com CloudFront, ALB e API Gateway**
+
+---
+
+- **AWS Network Firewall**
+
+Firewall gerenciado para proteção de rede VPC:
+- **Filtra tráfego de entrada/saída da VPC**
+- **Regras baseadas em IP, porta, protocolo e conteúdo de pacotes**
+- **Proteção contra ameaças conhecidas (listas de IPs maliciosos)**
+- **Inspeção de pacotes stateful e stateless**
+- **Ideal para criar perímetros de segurança entre VPCs**
+
+---
+
+- **AWS Firewall Manager**
+
+Gerenciamento centralizado de firewalls em múltiplas contas:
+- **Administra regras de WAF, Shield, Network Firewall, Security Groups**
+- **Aplica políticas em todas as contas da AWS Organizations**
+- **Garante que novos recursos sigam políticas de segurança**
+- **Monitora compliance das regras**
+- **Ideal para empresas com múltiplas contas AWS**
+
+---
+
+- **Penetration Testing**
+
+Testes de invasão permitidos na AWS:
+- **8 serviços podem ser testados sem aprovação prévia**
+- **EC2, RDS, CloudFront, Aurora, API Gateway, Lambda, Lightsail, Beanstalk**
+- **Atividades proibidas: DDoS, port flooding, DNS zone walking**
+- **Precisa solicitar permissão para outros tipos de testes**
+- **Não afeta SLA nem viola termos de serviço se dentro das regras**
+
+---
+
+- **Encryption with KMS & CloudHSM**
+
+Serviços para gerenciar chaves de criptografia:
+- **KMS (Key Management Service):** Gerencia chaves de criptografia
+  - **Integrado com maioria dos serviços AWS**
+  - **Chaves nunca saem do KMS (API para criptografar/descriptografar)**
+  - **Rotação automática de chaves**
+- **CloudHSM:** Hardware Security Module dedicado
+  - **Você gerencia suas próprias chaves**
+  - **Sem acesso da AWS às suas chaves**
+  - **Compatível com padrões FIPS 140-2 Nível 3**
+
+---
+
+- **AWS Certificate Manager (ACM) Overview**
+
+Serviço para gerenciar certificados SSL/TLS:
+- **Provisiona, gerencia e renova certificados automaticamente**
+- **Gratuito para uso com serviços AWS (CloudFront, ALB)**
+- **Suporta certificados públicos e privados**
+- **Integração com Route 53 para validação de domínio**
+- **Elimina processo manual de renovação de certificados**
+
+---
+
+- **Secrets Manager Overview**
+
+Serviço para armazenar e gerenciar segredos:
+- **Armazena senhas, API keys, tokens, etc.**
+- **Rotação automática de segredos (especialmente útil para RDS)**
+- **Integração com RDS, Redshift, DocumentDB**
+- **Controle de acesso via IAM**
+- **Criptografia em repouso e em trânsito**
+- **Mais avançado que Parameter Store, mas pago**
+
+---
+
+- **Artifact Overview**
+
+Portal de compliance e acordos da AWS:
+- **Acesso a relatórios de auditoria da AWS (SOC, PCI, ISO, etc.)**
+- **Download de certificações para auditores**
+- **Gerenciamento de acordos com AWS (BAA para HIPAA, etc.)**
+- **Gratuito para todos os clientes**
+- **Essencial para demonstrar compliance em auditorias**
+
+---
+
+- **GuardDuty Overview**
+
+Serviço de detecção de ameaças inteligente:
+- **Monitora continuamente atividades maliciosas e comportamentos anormais**
+- **Analisa logs de CloudTrail, VPC Flow Logs e DNS**
+- **Usa machine learning e inteligência de ameaças**
+- **Detecta mineração de criptomoedas, acessos suspeitos, comunicações com IPs maliciosos**
+- **Período de teste gratuito de 30 dias**
+
+---
+
+- **Inspector Overview**
+
+Serviço de avaliação de segurança automatizado:
+- **Analisa vulnerabilidades em instâncias EC2 e imagens de containers**
+- **Verifica exposição à rede, acessibilidade e desvios de melhores práticas**
+- **Produz lista de vulnerabilidades classificadas por severidade**
+- **Integra-se com Security Hub e EventBridge**
+- **Ideal para verificar compliance e vulnerabilidades**
+
+---
+
+- **Config Overview**
+
+Serviço de avaliação, auditoria e inventário de recursos:
+- **Registra configurações e mudanças em recursos AWS**
+- **Avalia recursos contra regras de compliance**
+- **Notifica sobre mudanças não-conformes**
+- **Mantém histórico de configurações para auditoria**
+- **Pode corrigir automaticamente configurações não-conformes**
+
+---
+
+- **Macie Overview**
+
+Serviço de segurança e privacidade de dados:
+- **Descobre e protege dados sensíveis no S3**
+- **Usa machine learning para reconhecer dados sensíveis (PII, credenciais, etc.)**
+- **Monitora acesso a dados sensíveis**
+- **Alerta sobre configurações de segurança arriscadas**
+- **Ajuda com compliance de privacidade (GDPR, CCPA, etc.)**
+
+---
+
+- **Security Hub Overview**
+
+Centro de segurança unificado:
+- **Agrega alertas e resultados de segurança em um só lugar**
+- **Coleta dados de GuardDuty, Inspector, Macie, IAM Access Analyzer, etc.**
+- **Verifica compliance com padrões (CIS, PCI DSS, AWS Best Practices)**
+- **Automatiza correções com regras personalizadas**
+- **Visão centralizada de segurança em todas as contas**
+
+---
+
+- **Amazon Detective Overview**
+
+Serviço para investigação de problemas de segurança:
+- **Analisa trilhões de eventos para identificar causas-raiz**
+- **Usa machine learning para identificar atividades suspeitas**
+- **Visualiza relacionamentos entre recursos, IPs e contas**
+- **Complementa GuardDuty e Security Hub (eles detectam, Detective investiga)**
+- **Ideal para entender "como" um incidente de segurança aconteceu**
+
+---
+
+- **AWS Abuse**
+
+Sistema para reportar uso abusivo de recursos AWS:
+- **Canal para denunciar atividades suspeitas (spam, malware, pentest não autorizado)**
+- **AWS investiga e toma ações contra violações dos termos de serviço**
+- **Protege reputação dos IPs da AWS**
+- **Formulário disponível no site da AWS**
+- **Importante para manter o ecossistema AWS seguro**
+
+---
+
+- **Root User Privileges**
+
+Conta com acesso completo a todos os recursos AWS:
+- **Único usuário que pode fazer certas ações (fechar conta, alterar suporte)**
+- **Não deve ser usado para tarefas diárias**
+- **Proteja com MFA obrigatório**
+- **Não compartilhe credenciais**
+- **Crie usuário administrativo IAM para tarefas do dia a dia**
+
+---
+
+- **IAM Access Analyzer**
+
+Ferramenta para identificar acesso externo a recursos:
+- **Identifica recursos compartilhados com entidades externas**
+- **Usa lógica matemática para analisar políticas**
+- **Ajuda a implementar princípio do menor privilégio**
+- **Monitora continuamente novas políticas e alterações**
+- **Ideal para garantir que recursos não estejam expostos acidentalmente**
+
+---
+
+### Machine Learning
+
+- **Rekognition Overview**
+
+Image and video analysis service
+
+Rekognition é o serviço de visão computacional da AWS. É como ter um especialista em imagens que identifica objetos, pessoas, texto e atividades em fotos e vídeos. Pode detectar rostos, reconhecer celebridades, identificar conteúdo impróprio e até analisar emoções. Muito usado para organizar bibliotecas de mídia, melhorar segurança e criar experiências interativas.
+
+---
+
+- **Transcribe Overview**
+
+Speech-to-text conversion service
+
+Transcribe converte áudio em texto automaticamente. É como ter um assistente que transforma gravações em documentos escritos. Reconhece múltiplos idiomas, identifica diferentes falantes e filtra palavrões. Perfeito para legendar vídeos, transcrever reuniões ou criar conteúdo acessível a partir de arquivos de áudio.
+
+---
+
+- **Polly Overview**
+
+Text-to-speech service
+
+Polly transforma texto em fala natural. É como ter um narrador profissional que lê seu conteúdo em diferentes vozes e idiomas. Oferece dezenas de vozes realistas e suporta marcações SSML para controle fino da pronúncia. Ideal para criar conteúdo acessível, sistemas de resposta interativa e experiências de áudio personalizadas.
+
+---
+
+- **Translate Overview**
+
+Neural machine translation service
+
+Translate é o serviço de tradução automática da AWS. É como ter um tradutor instantâneo que converte texto entre dezenas de idiomas usando redes neurais. Mantém o contexto e nuances melhor que tradutores tradicionais. Perfeito para localizar sites, aplicativos e conteúdo para audiências globais sem precisar contratar tradutores humanos para cada idioma.
+
+---
+
+- **Lex + Connect Overview**
+
+Chatbot and contact center services
+
+Lex é o motor por trás da Alexa, permitindo criar chatbots inteligentes. Connect é um contact center na nuvem. Juntos, são como montar um centro de atendimento automatizado:
+- **Lex:** Entende linguagem natural e intenções do usuário
+- **Connect:** Gerencia filas, fluxos de chamadas e agentes
+- **Integração perfeita para autoatendimento inteligente**
+- **Reduz custos de atendimento mantendo boa experiência**
+
+---
+
+- **Comprehend Overview**
+
+Natural language processing service
+
+Comprehend analisa textos para extrair insights e sentimentos. É como ter um especialista em linguística que entende o que os textos realmente significam. Identifica entidades (pessoas, lugares), sentimentos (positivo/negativo), frases-chave e idiomas automaticamente. Muito usado para analisar feedback de clientes, classificar documentos e extrair informações de textos não estruturados.
+
+---
+
+- **SageMaker Overview**
+
+Machine learning platform
+
+SageMaker é a plataforma completa para machine learning. É como um estúdio de produção para cientistas de dados, com todas as ferramentas necessárias:
+- **Prepara dados e cria modelos com notebooks Jupyter**
+- **Treina em grande escala sem gerenciar infraestrutura**
+- **Implanta com um clique e escala automaticamente**
+- **Reduz custos com instâncias spot e endpoints multi-modelo**
+- **Ideal para equipes que querem focar em ML, não em infraestrutura**
+
+---
+
+- **Forecast Overview**
+
+Time-series forecasting service
+
+Forecast prevê valores futuros baseados em dados históricos. É como ter um vidente digital para seus negócios, mas baseado em ciência. Usa machine learning para prever vendas, demanda, consumo de recursos e outras séries temporais com alta precisão. Não precisa ser especialista em ML para usar - basta fornecer dados históricos e o serviço faz o resto.
+
+---
+
+- **Kendra Overview**
+
+Enterprise search service
+
+Kendra é um serviço de busca empresarial com ML. É como o Google, mas para documentos internos da empresa. Entende perguntas em linguagem natural e encontra respostas precisas em vez de apenas links. Conecta-se a repositórios como S3, SharePoint e Salesforce para indexar documentos. Ideal para empresas com muita documentação espalhada em vários sistemas.
+
+---
+
+- **Personalize Overview**
+
+Real-time personalization service
+
+Personalize cria recomendações personalizadas em tempo real. É como ter o mesmo sistema de recomendação da Amazon em seu site ou app. Sugere produtos, conteúdo ou ações baseado no comportamento do usuário, atributos e contexto. Não precisa ser especialista em ML - o serviço cria e treina modelos automaticamente a partir dos seus dados de interação.
+
+---
+
+- **Textract Overview**
+
+Document text extraction service
+
+Textract extrai texto e dados de documentos digitalizados. É como ter um assistente que lê formulários e documentos, entendendo tanto o texto quanto a estrutura. Vai além do OCR simples - reconhece tabelas, formulários e pares chave-valor. Automatiza processamento de faturas, recibos, documentos de identidade e formulários, eliminando entrada manual de dados.
+
+---
+
+### Account Management, Billing & Support
+
+- **Organizations Overview**
+
+Multi-account management service
+
+Organizations é o serviço para gerenciar múltiplas contas AWS. É como criar uma estrutura corporativa para suas contas AWS:
+- **Agrupa contas em uma hierarquia organizacional**
+- **Gerenciamento centralizado de políticas e permissões**
+- **Aplica controles de segurança em todas as contas**
+- **Cria contas novas facilmente**
+- **Ideal para empresas com várias equipes ou departamentos**
+
+---
+
+- **Organizations Consolidated Billing**
+
+Centralized billing for multiple accounts
+
+Faturamento consolidado permite pagar todas suas contas AWS de uma vez só. É como ter uma única fatura para toda a família:
+- **Uma única fatura para todas as contas**
+- **Visualiza custos combinados**
+- **Compartilha descontos por volume entre contas**
+- **Simplifica contabilidade e alocação de custos**
+- **A conta principal é responsável por todos os pagamentos**
+
+---
+
+- **AWS Control Tower Overview**
+
+Multi-account governance service
+
+Control Tower configura e governa ambientes AWS multi-conta seguros. É como contratar um arquiteto e segurança para organizar seu prédio AWS:
+- **Configura landing zones seguindo melhores práticas**
+- **Implementa guardrails (políticas preventivas e detectivas)**
+- **Automatiza configuração de contas**
+- **Dashboard centralizado de compliance**
+- **Perfeito para grandes empresas que precisam de governança rigorosa**
+
+---
+
+- **AWS Resource Access Manager (AWS RAM)**
+
+Resource sharing between accounts
+
+RAM permite compartilhar recursos AWS entre contas. É como emprestar suas ferramentas para vizinhos sem dar a chave da sua casa:
+- **Compartilha recursos como sub-redes, capacidade do RDS, regras do Route 53**
+- **Evita duplicação de recursos (economiza dinheiro)**
+- **Mantém controle centralizado**
+- **Compartilha com contas específicas ou toda a organização**
+- **Ideal para ambientes com múltiplas equipes usando recursos comuns**
+
+---
+
+- **AWS Service Catalog**
+
+Self-service IT service management
+
+Service Catalog permite criar catálogos de serviços aprovados para uso na organização. É como um cardápio de TI aprovado pela empresa:
+- **Cria portfolios de produtos padronizados**
+- **Usuários implantam apenas recursos pré-aprovados**
+- **Controla versões, permissões e configurações**
+- **Garante compliance e governança**
+- **Perfeito para empresas que precisam controlar o que os usuários podem provisionar**
+
+---
+
+- **Pricing Models of the Cloud**
+
+Understanding AWS pricing structures
+
+AWS tem vários modelos de preço para se adaptar a diferentes necessidades:
+- **Pay-as-you-go:** Pague apenas pelo que usar, sem compromisso
+- **Save when you reserve:** Pague menos comprometendo-se com 1-3 anos
+- **Pay less by using more:** Quanto mais usa, menos paga por unidade
+- **Pay less as AWS grows:** Preços caem conforme AWS escala
+- **Free tier:** Camada gratuita para experimentar serviços
+
+---
+
+- **Savings Plan Overview**
+
+Flexible pricing model for compute usage
+
+Savings Plan é um modelo flexível de preços com desconto. É como assinar um plano de celular com compromisso de gasto mínimo:
+- **Compromisso de gasto por hora (1 ou 3 anos)**
+- **Até 72% de desconto comparado a on-demand**
+- **Flexível entre regiões, famílias de instâncias, etc.**
+- **Mais simples que Reserved Instances**
+- **Dois tipos: Compute Savings Plans (mais flexível) e EC2 Instance Savings Plans (maior desconto)**
+
+---
+
+- **Compute Optimizer Overview**
+
+Cost management and monitoring tools
+
+Compute Optimizer analisa seus recursos e recomenda configurações otimizadas. É como ter um consultor financeiro para sua infraestrutura:
+- **Analisa métricas de utilização**
+- **Recomenda tipos de instância ideais**
+- **Identifica recursos sub ou superdimensionados**
+- **Usa machine learning para analisar padrões**
+- **Ajuda a reduzir custos mantendo performance**
+
+---
+
+- **Billing & Costing Tools Overview**
+
+Using billing dashboard and cost allocation
+
+AWS oferece várias ferramentas para gerenciar e entender seus custos:
+- **Billing Dashboard:** Visão geral dos custos atuais e previstos
+- **Cost Allocation Tags:** Etiquetas para categorizar recursos e gastos
+- **Cost and Usage Reports:** Relatórios detalhados de uso
+- **Cost Explorer:** Analisa custos e uso ao longo do tempo
+- **Budgets:** Define orçamentos e alertas
+
+---
+
+- **Estimating Costs in the Cloud**
+
+Using the AWS Pricing Calculator
+
+Pricing Calculator ajuda a estimar custos antes de implantar. É como fazer um orçamento antes de construir uma casa:
+- **Simula diferentes configurações de serviços**
+- **Compara custos entre regiões**
+- **Calcula TCO (custo total de propriedade)**
+- **Exporta estimativas para apresentações**
+- **Ajuda a planejar financeiramente antes de migrar**
+
+---
+
+- **Tracking Costs in the Cloud**
+
+Billing dashboard, cost allocation, tags and reports
+
+Para rastrear custos na AWS, você pode usar:
+- **Tags:** Etiquetas que categorizam recursos (ex: departamento, projeto)
+- **Cost Categories:** Agrupa custos por regras personalizadas
+- **Cost and Usage Reports:** Dados detalhados em CSV no S3
+- **Cost Explorer:** Visualiza tendências e padrões de gastos
+- **Essencial para atribuir custos a departamentos ou clientes**
+
+---
+
+- **Monitoring Costs in the Cloud**
+
+Setting up billing alarms and budgets
+
+Para monitorar e controlar custos:
+- **Billing Alarms:** Alertas do CloudWatch quando custos ultrapassam limites
+- **AWS Budgets:** Define orçamentos e notifica quando próximo do limite
+- **Budget Actions:** Responde automaticamente a excessos de orçamento
+- **Reports:** Relatórios regulares de gastos
+- **Evita surpresas na fatura no fim do mês**
+
+---
+
+- **AWS Cost Anomaly Detection**
+
+Identifying unusual spending patterns
+
+Cost Anomaly Detection usa ML para identificar gastos incomuns. É como um sistema antifraude para seus custos AWS:
+- **Detecta automaticamente padrões anormais de gastos**
+- **Alerta sobre aumentos inesperados**
+- **Avalia a causa raiz da anomalia**
+- **Agrupa gastos relacionados para reduzir alertas falsos**
+- **Ajuda a identificar recursos esquecidos ou mal configurados**
+
+---
+
+- **AWS Service Quotas**
+
+Managing service limits
+
+Service Quotas gerencia os limites de serviços na sua conta:
+- **Visualiza limites atuais de cada serviço**
+- **Solicita aumentos de limites diretamente pela interface**
+- **Configura alertas quando se aproxima dos limites**
+- **Evita erros de "limite excedido" em produção**
+- **Ajuda no planejamento de capacidade**
+
+---
+
+- **AWS Trusted Advisor**
+
+Best practice recommendations
+
+Trusted Advisor é como um consultor que verifica sua conta e faz recomendações:
+- **Otimização de custos:** Identifica recursos ociosos ou subutilizados
+- **Performance:** Sugere melhorias para aumentar eficiência
+- **Segurança:** Detecta vulnerabilidades e configurações arriscadas
+- **Tolerância a falhas:** Verifica redundância e backups
+- **Limites de serviço:** Alerta quando você se aproxima de limites
+
+---
+
+- **Support Plans for AWS**
+
+Different support levels and features
+
+AWS oferece diferentes planos de suporte para atender várias necessidades:
+- **Basic:** Gratuito, acesso a documentação e fóruns
+- **Developer:** Suporte por email em horário comercial ($29/mês)
+- **Business:** Suporte 24/7 por telefone, chat e email ($100/mês)
+- **Enterprise:** Gerente técnico dedicado, suporte prioritário ($15k/mês)
+- **Quanto maior o plano, menor o tempo de resposta para casos críticos**
+
+---
+
+### Advanced Identity
+
+- **Security Token Service (STS) Overview**
+
+Temporary security credentials
+
+STS é o serviço que gera credenciais temporárias de segurança. É como um porteiro que dá crachás de visitante temporários:
+- **Cria credenciais que duram de minutos a horas**
+- **Permite acesso temporário a recursos AWS**
+- **Usado para federação de identidades e acesso cross-account**
+- **Mais seguro que credenciais de longo prazo**
+- **Base para assumir roles do IAM**
+
+---
+
+- **Cognito Overview**
+
+Customer identity and access management
+
+Cognito é o serviço de gerenciamento de identidade para aplicações. É como um sistema de login completo para seus apps:
+- **Adiciona cadastro/login a aplicações web e mobile**
+- **Suporta login social (Google, Facebook, Amazon)**
+- **Integra com provedores SAML e OpenID**
+- **Sincroniza dados de usuário entre dispositivos**
+- **Ideal para aplicações B2C que precisam de sistema de autenticação**
+
+---
+
+- **Directory Service**
+
+Managed Microsoft AD service
+
+Directory Service é o Active Directory gerenciado na AWS. É como ter seu Windows Server AD sem precisar gerenciar servidores:
+- **Compatível com Microsoft Active Directory**
+- **Integra-se com recursos on-premises**
+- **Gerencia usuários, grupos e políticas**
+- **Suporta autenticação LDAP**
+- **Perfeito para empresas que usam aplicações baseadas em Windows**
+
+---
+
+- **AWS IAM Identity Center**
+
+Single sign-on and access management
+
+IAM Identity Center (antigo AWS SSO) é o serviço de login único para múltiplas contas AWS. É como ter uma chave mestra que abre várias portas:
+- **Login único para todas as contas da organização**
+- **Acesso centralizado ao Console AWS**
+- **Integra com Active Directory e provedores SAML 2.0**
+- **Gerencia permissões por grupos**
+- **Simplifica o acesso para usuários em ambientes multi-conta**
+
+---
+
+### Other AWS Services
+
+- **WorkSpaces Overview**
+
+Virtual desktop infrastructure
+
+WorkSpaces é o serviço de desktop virtual da AWS. É como ter seu computador Windows ou Linux na nuvem:
+- **Acesse seu desktop de qualquer dispositivo (PC, Mac, tablets, smartphones)**
+- **Elimina necessidade de hardware potente para os usuários**
+- **Dados centralizados e seguros (não ficam em dispositivos locais)**
+- **Pague por hora ou mensalmente**
+- **Ideal para trabalho remoto, empresas com BYOD, ambientes regulados**
+
+---
+
+- **AppStream 2.0 Overview**
+
+Application streaming service
+
+AppStream 2.0 transmite aplicações desktop pela internet. É como Netflix, mas para softwares:
+- **Acesse aplicações Windows sem instalá-las localmente**
+- **Funciona em qualquer dispositivo com navegador**
+- **Aplicações rodam na AWS, só a interface é transmitida**
+- **Mais flexível que WorkSpaces (streaming só da aplicação, não do desktop inteiro)**
+- **Ideal para aplicações pesadas como CAD, edição de vídeo, ou software especializado**
+
+---
+
+- **IoT Core Overview**
+
+IoT device connectivity service
+
+IoT Core conecta dispositivos IoT à nuvem AWS. É como um tradutor universal para seus dispositivos inteligentes:
+- **Conecta bilhões de dispositivos à nuvem**
+- **Suporta protocolos MQTT, HTTPS, LoRaWAN**
+- **Processa e roteia mensagens para serviços AWS**
+- **Gerencia segurança e autenticação dos dispositivos**
+- **Ideal para casas inteligentes, indústria 4.0, cidades conectadas**
+
+---
+
+- **Elastic Transcoder Overview**
+
+Media transcoding service
+
+Elastic Transcoder converte arquivos de mídia para diferentes formatos. É como um estúdio de conversão de vídeo automatizado:
+- **Converte vídeos para formatos compatíveis com diversos dispositivos**
+- **Cria diferentes resoluções para adaptação à largura de banda**
+- **Extrai áudio, cria thumbnails, adiciona marcas d'água**
+- **Preço baseado em minutos processados e resolução**
+- **Ideal para streaming de vídeo, bibliotecas de mídia, plataformas de conteúdo**
+
+---
+
+- **AppSync**
+
+GraphQL API development service
+
+AppSync é um serviço gerenciado para APIs GraphQL. É como um maestro que coordena dados de múltiplas fontes:
+- **Cria APIs GraphQL sem gerenciar servidores**
+- **Sincroniza dados entre aplicações em tempo real**
+- **Funciona offline com sincronização automática quando reconecta**
+- **Integra-se com DynamoDB, Lambda, OpenSearch**
+- **Ideal para apps móveis, dashboards em tempo real, aplicações colaborativas**
+
+---
+
+- **Amplify**
+
+Mobile and web application development platform
+
+Amplify é uma plataforma para desenvolver e implantar aplicações web e mobile. É como um kit completo para construir apps modernos:
+- **Ferramentas de frontend e backend em um só lugar**
+- **Componentes pré-construídos para autenticação, armazenamento, APIs**
+- **Implantação contínua a partir de repositórios Git**
+- **Interface visual para configurar recursos**
+- **Ideal para startups e equipes que precisam lançar apps rapidamente**
+
+---
+
+- **AWS Infrastructure Composer**
+
+Visual infrastructure design tool
+
+Infrastructure Composer é uma ferramenta visual para projetar arquiteturas AWS. É como um quadro branco digital para desenhar sua infraestrutura:
+- **Cria diagramas de arquitetura arrastando e soltando**
+- **Gera automaticamente templates CloudFormation**
+- **Valida arquiteturas contra melhores práticas**
+- **Compartilha designs com a equipe**
+- **Ideal para planejamento e documentação de infraestrutura**
+
+---
+
+- **Device Farm Overview**
+
+Mobile app testing service
+
+Device Farm testa aplicativos em dispositivos reais. É como ter um laboratório com centenas de smartphones e tablets:
+- **Testa em dispositivos físicos (não emuladores)**
+- **Suporta Android, iOS, web responsivo**
+- **Executa testes automatizados ou manuais**
+- **Captura logs, screenshots e vídeos dos testes**
+- **Ideal para garantir compatibilidade em diversos dispositivos**
+
+---
+
+- **AWS Backup Overview**
+
+Centralized backup management
+
+AWS Backup centraliza e automatiza backups na AWS. É como ter um sistema único para gerenciar todos seus backups:
+- **Gerencia backups de EC2, RDS, DynamoDB, EFS, etc.**
+- **Agenda backups automáticos**
+- **Define políticas de retenção e ciclo de vida**
+- **Copia backups entre regiões e contas**
+- **Ideal para simplificar compliance e proteção de dados**
+
+---
+
+- **Disaster Recovery Strategies**
+
+Planning for business continuity
+
+Estratégias de recuperação de desastres na AWS variam conforme necessidades:
+- **Backup & Restore:** Mais barato, maior RTO/RPO (horas/dias)
+- **Pilot Light:** Componentes críticos sempre ativos, o resto é ativado quando necessário
+- **Warm Standby:** Versão reduzida do ambiente sempre rodando
+- **Multi-Site:** Ambiente completo duplicado (mais caro, menor RTO/RPO)
+- **A escolha depende do equilíbrio entre custo e velocidade de recuperação**
+
+---
+
+- **AWS Elastic Disaster Recovery (DRS)**
+
+Server recovery service
+
+Elastic Disaster Recovery (DRS) replica servidores para recuperação rápida. É como ter um clone adormecido dos seus servidores:
+- **Replica servidores on-premises ou na nuvem para AWS**
+- **Mantém servidores de standby em estado de baixo custo**
+- **Permite testes de recuperação sem afetar produção**
+- **Failover em minutos quando necessário**
+- **Ideal para recuperação rápida com investimento mínimo**
+
+---
+
+- **AWS DataSync**
+
+Data transfer service
+
+DataSync transfere grandes volumes de dados para AWS. É como um sistema de mudança especializado para seus dados:
+- **Transfere dados entre on-premises e AWS ou entre serviços AWS**
+- **10x mais rápido que ferramentas tradicionais**
+- **Criptografa dados em trânsito**
+- **Verifica integridade dos dados automaticamente**
+- **Ideal para migrações, arquivamento, processamento de dados**
+
+---
+
+- **Cloud Migration Strategies**
+
+The 7Rs - Different approaches to cloud migration
+
+As 7 estratégias de migração para nuvem (7Rs):
+- **Rehost (lift-and-shift):** Mover aplicações sem alterações
+- **Replatform (lift-and-reshape):** Otimizações mínimas sem mudar arquitetura
+- **Repurchase (drop-and-shop):** Trocar por produto SaaS/diferente
+- **Refactor/Re-architect:** Reimaginar usando recursos nativos de nuvem
+- **Retire:** Desativar aplicações desnecessárias
+- **Retain:** Manter on-premises por enquanto
+- **Relocate:** Mover infraestrutura sem comprar novo hardware (VMware Cloud on AWS)
+
+---
+
+- **Application Discovery Service & Migration Service**
+
+Migration planning and execution
+
+Serviços para planejar e executar migrações:
+- **Application Discovery Service:** Coleta informações sobre data centers on-premises
+  - **Mapeia dependências entre aplicações**
+  - **Identifica requisitos de computação, armazenamento e rede**
+- **Migration Service (MGN):** Automatiza migração de servidores
+  - **Replica servidores para AWS**
+  - **Minimiza tempo de inatividade**
+  - **Simplifica lift-and-shift**
+
+---
+
+- **AWS Migration Evaluator**
+
+Migration assessment tool
+
+Migration Evaluator (antes TSO Logic) avalia seu ambiente para migração. É como um consultor que analisa seu data center:
+- **Cria inventário de recursos on-premises**
+- **Analisa utilização atual**
+- **Recomenda instâncias AWS equivalentes**
+- **Estima custos pós-migração**
+- **Ajuda a criar business case para migração**
+
+---
+
+- **AWS Migration Hub**
+
+Migration progress tracking
+
+Migration Hub centraliza o acompanhamento de migrações. É como um painel único para todas suas migrações:
+- **Visualiza status de todas as migrações em um só lugar**
+- **Acompanha progresso de servidores e aplicações**
+- **Integra-se com ferramentas de migração AWS e de parceiros**
+- **Agrupa aplicações para melhor organização**
+- **Ideal para migrações complexas com muitos componentes**
+
+---
+
+- **AWS Fault Injection Simulator (FIS)**
+
+Controlled chaos engineering
+
+FIS é um serviço de engenharia do caos gerenciado. É como testar seu sistema deliberadamente quebrando coisas:
+- **Cria experimentos controlados que simulam falhas**
+- **Testa resiliência de aplicações em produção**
+- **Inclui proteções para limitar impacto**
+- **Verifica se sistemas se recuperam automaticamente**
+- **Ideal para construir sistemas mais robustos**
+
+---
+
+- **Step Functions**
+
+Visual workflow service
+
+Step Functions orquestra fluxos de trabalho com componentes distribuídos. É como um diretor de orquestra para seus microserviços:
+- **Coordena múltiplos serviços AWS em workflows visuais**
+- **Gerencia estados, retentativas e tratamento de erros**
+- **Executa em paralelo, sequencialmente ou com condições**
+- **Rastreia cada passo da execução**
+- **Ideal para processos de negócio, ETL, aprovações**
+
+---
+
+- **Ground Station**
+
+Satellite communications service
+
+Ground Station é um serviço para comunicação com satélites. É como alugar uma antena parabólica gigante quando precisar:
+- **Rede de estações terrestres ao redor do mundo**
+- **Agenda contato com satélites**
+- **Recebe dados diretamente em serviços AWS (S3, EC2)**
+- **Elimina necessidade de construir infraestrutura própria**
+- **Ideal para observação da Terra, previsão do tempo, comunicações**
+
+---
+
+- **AWS Pinpoint**
+
+Customer engagement service
+
+Pinpoint gerencia comunicações com usuários em múltiplos canais. É como um sistema de marketing e engajamento completo:
+- **Envia mensagens por email, SMS, push, voz e canais personalizados**
+- **Segmenta usuários com base em comportamento e atributos**
+- **Personaliza mensagens para cada usuário**
+- **Mede eficácia das campanhas**
+- **Ideal para marketing, transacional, notificações**
+
+---
+
+### AWS Architecting & Ecosystem
+
+- **AWS WhitePapers Well-Architected Framework**
+
+Best practices for cloud architectures
+
+Well-Architected Framework é um conjunto de melhores práticas para arquiteturas na nuvem. É como um manual de construção para sistemas AWS:
+- **Baseado na experiência de milhares de clientes**
+- **Organizado em 6 pilares (antes eram 5)**
+- **Ajuda a tomar decisões arquiteturais conscientes**
+- **Evolui constantemente com novas práticas e serviços**
+- **Fundamental para construir sistemas seguros, eficientes e econômicos**
+
+---
+
+- **Pillar 1: Operational Excellence**
+
+Operations management best practices
+
+Pilar de Excelência Operacional foca em executar e monitorar sistemas. É como ter processos bem definidos para operar sua infraestrutura:
+- **Automatiza mudanças e procedimentos**
+- **Responde a eventos e falhas**
+- **Define padrões para gerenciar operações diárias**
+- **Documentação, monitoramento e melhoria contínua**
+- **Permite que a equipe se concentre em agregar valor ao negócio**
+
+---
+
+- **Pillar 2: Security**
+
+Security best practices
+
+Pilar de Segurança protege informações e sistemas. É como construir uma fortaleza digital com múltiplas camadas de proteção:
+- **Implementa identidade e controle de acesso forte**
+- **Estabelece controles de detecção**
+- **Protege sistemas e dados em todos os níveis**
+- **Automatiza respostas a incidentes**
+- **Aplica segurança em todas as camadas**
+
+---
+
+- **Pillar 3: Reliability**
+
+System reliability best practices
+
+Pilar de Confiabilidade garante que sistemas funcionem corretamente e se recuperem de falhas. É como construir um serviço que nunca para:
+- **Testa procedimentos de recuperação**
+- **Recupera-se automaticamente de falhas**
+- **Escala horizontalmente para aumentar disponibilidade**
+- **Gerencia mudanças com automação**
+- **Projeta sistemas para resistir a falhas de componentes**
+
+---
+
+- **Pillar 4: Performance Efficiency**
+
+Performance optimization practices
+
+Pilar de Eficiência de Performance usa recursos computacionais de forma eficiente. É como otimizar um motor para máxima potência com mínimo combustível:
+- **Seleciona tipos e tamanhos de recursos adequados**
+- **Monitora performance continuamente**
+- **Mantém-se atualizado com novos recursos e serviços**
+- **Usa serverless e serviços gerenciados quando possível**
+- **Experimenta frequentemente para melhorar**
+
+---
+
+- **Pillar 5: Cost Optimization**
+
+Cost management best practices
+
+Pilar de Otimização de Custos ajuda a evitar gastos desnecessários. É como gerenciar um orçamento familiar de forma inteligente:
+- **Adota modelo de consumo baseado em necessidade**
+- **Mede eficiência e monitora gastos**
+- **Elimina recursos desnecessários**
+- **Analisa e atribui gastos por departamento/projeto**
+- **Usa instâncias reservadas e Savings Plans para reduzir custos**
+
+---
+
+- **Pillar 6: Sustainability**
+
+Environmental impact considerations
+
+Pilar de Sustentabilidade minimiza o impacto ambiental. É como construir uma casa ecológica que consome menos recursos:
+- **Seleciona regiões com menor pegada de carbono**
+- **Alinha padrões de uso com fontes de energia mais limpas**
+- **Usa hardware mais eficiente e minimiza recursos ociosos**
+- **Reduz energia downstream necessária para usar seus serviços**
+- **Adota arquiteturas que maximizam utilização de recursos**
+
+---
+
+- **AWS Well-Architected Tool**
+
+Architecture assessment tool
+
+Well-Architected Tool avalia suas arquiteturas contra as melhores práticas. É como ter um inspetor que verifica se sua construção segue o código de obras:
+- **Questionário baseado nos 6 pilares**
+- **Identifica áreas de alto e médio risco**
+- **Fornece plano de melhoria com recursos educacionais**
+- **Salva múltiplas revisões para acompanhar progresso**
+- **Gratuito para todos os clientes AWS**
+
+---
+
+- **AWS Customer Carbon Footprint Tool**
+
+Environmental impact monitoring
+
+Carbon Footprint Tool monitora a pegada de carbono do seu uso AWS. É como um medidor que mostra seu impacto ambiental:
+- **Calcula emissões associadas aos serviços AWS que você usa**
+- **Mostra tendências e progresso ao longo do tempo**
+- **Ajuda a entender o impacto das iniciativas de sustentabilidade**
+- **Fornece dados para relatórios ESG (Environmental, Social, Governance)**
+- **Disponível gratuitamente no console AWS**
+
+---
+
+- **AWS Cloud Adoption Framework (CAF)**
+
+Organizational cloud adoption guidance
+
+Cloud Adoption Framework orienta organizações na adoção da nuvem. É como um mapa para a jornada de transformação digital:
+- **Divide a transformação em 6 perspectivas: Negócio, Pessoas, Governança, Plataforma, Segurança, Operações**
+- **Identifica capacidades necessárias para cada perspectiva**
+- **Ajuda a entender lacunas e criar planos de ação**
+- **Fornece orientação para diferentes fases da jornada**
+- **Baseado em experiências de milhares de clientes**
+
+---
+
+- **Right Sizing**
+
+Resource optimization strategies
+
+Right Sizing é o processo de escolher os recursos certos para suas cargas de trabalho. É como comprar o carro do tamanho certo para suas necessidades:
+- **Seleciona instâncias com base em requisitos reais, não estimativas**
+- **Monitora utilização e ajusta conforme necessário**
+- **Reduz custos eliminando recursos superdimensionados**
+- **Melhora performance corrigindo recursos subdimensionados**
+- **Processo contínuo, não uma atividade única**
+
+---
+
+- **AWS Ecosystem**
+
+Partner and community networks
+
+Ecossistema AWS é a rede de parceiros e recursos que complementam os serviços AWS. É como um grande mercado de soluções e especialistas:
+- **AWS Marketplace:** Loja de software de terceiros
+- **APN (AWS Partner Network):** Rede global de parceiros
+- **Parceiros de Tecnologia:** Criam produtos integrados com AWS
+- **Parceiros de Consultoria:** Ajudam clientes a adotar AWS
+- **Competências AWS:** Validam expertise em áreas específicas**
+
+---
+
+- **AWS IQ & re:Post**
+
+Expert help and community support
+
+AWS IQ e re:Post são plataformas para obter ajuda:
+- **AWS IQ:** Conecta clientes a especialistas independentes
+  - **Contrate por projeto ou por hora**
+  - **Especialistas verificados pela AWS**
+  - **Pagamento gerenciado pela AWS**
+- **re:Post:** Comunidade de perguntas e respostas (substitui AWS Forums)
+  - **Respostas verificadas por especialistas**
+  - **Conteúdo curado e organizado**
+  - **Gamificação com pontos e distintivos**
+
+---
+
+- **AWS Knowledge Center**
+
+Common questions and solutions
+
+Knowledge Center é uma biblioteca de perguntas frequentes e soluções. É como uma enciclopédia de problemas comuns e suas respostas:
+- **Artigos escritos pela equipe de suporte AWS**
+- **Cobre problemas comuns e suas soluções**
+- **Organizado por serviço e tópico**
+- **Atualizado regularmente com novos problemas**
+- **Disponível gratuitamente para todos**
+
+---
+
+- **AWS Managed Services**
+
+Ongoing AWS infrastructure management
+
+AWS Managed Services (AMS) é um serviço que gerencia sua infraestrutura AWS. É como contratar a AWS para ser seu departamento de operações:
+- **Gerencia operações diárias (monitoramento, incidentes, segurança)**
+- **Implementa melhores práticas automaticamente**
+- **Reduz carga operacional da sua equipe de TI**
+- **Fornece ferramentas de automação e governança**
+- **Ideal para grandes empresas que querem migrar rapidamente**
+
+---

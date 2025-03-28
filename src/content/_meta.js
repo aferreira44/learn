@@ -1,0 +1,15 @@
+export default {
+  index: "Start Here",
+  aws: "AWS",
+  python: "Python",
+  math: "Math",
+  cryptography: "Cryptography",
+  bitcoin: "Bitcoin",
+  ai: "AI",
+  "quantum-computing": "Quantum Computing",
+  typescript: "TypeScript",
+  react: "React",
+  web3: "Web3",
+  rust: "Rust",
+  go: "Go",
+};
